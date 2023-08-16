@@ -1,21 +1,25 @@
 {
   "name": "@cozminu/gpt-cli",
   "version": "1.0.10",
-  "description": "",
-  "main": "index.js",
+  "description": "Interact with ChatGPT directly from the command line",
+  "repository": {
+    "url": "https://github.com/cozminu/gpt-cli"
+  },
+  "main": "disc/src/index.js",
   "bin": {
-    "gpt": "dist/index.js"
+    "gpt": "dist/src/index.js"
   },
   "scripts": {
-    "build": "npx tsc",
-    "start": "node index.js",
-    "ask": "npx tsc && node ./dist/index ask \"hello my name is Cozmin\" -s",
-    "chat": "npx tsc && node ./dist/index chat -s",
-    "help": "npx tsc && node ./dist/index -h",
+    "build": "tsc",
+    "start": "npm build && node index.js",
+    "ask": "npm build && node ./dist/index ask \"hello my name is Cozmin\" -s",
+    "chat": "npm build && node ./dist/index chat -s",
+    "help": "npm build && node ./dist/index -h",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pub": "npm version patch && npm publish --access=public"
+    "pub": "npm build && npm version patch && npm publish --access=public"
   },
-  "author": "",
+  "author": "Cozmin U <cozminu@gmail.com> (https://github.com/cozminu)",
+  "homepage": "https://github.com/cozminu/gpt-cli#readme",
   "license": "ISC",
   "dependencies": {
     "@commander-js/extra-typings": "^11.0.0",

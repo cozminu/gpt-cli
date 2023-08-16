@@ -6,15 +6,15 @@ import chalk from "chalk";
 import boxen from "boxen";
 import { startInteractiveChat } from "./modes/interactive";
 import { startSinglePromptChat } from "./modes/single-prompt";
+import * as info from "../package.json";
 
 async function main() {
-  const name = "gpt-cli";
-  const version = "v1.0.0";
+  const name = "gpt";
   const program = new Command(name);
 
   program
-    .version(version)
-    .description("Interact with ChatGPT from the CLI")
+    .version(info.version)
+    .description(info.description)
     .option("-s, --save [file]", "save conversation to a file");
 
   program
@@ -39,7 +39,7 @@ async function main() {
         boxen(chalk.blue(figlet.textSync(name.toUpperCase())), {
           borderColor: "cyan",
           padding: { right: 6, top: 1, bottom: 1, left: 5 },
-          title: version,
+          title: info.version,
           titleAlignment: "right",
         }) + "\n"
       );
