@@ -33,3 +33,39 @@ export OPENAI_API_KEY=<your_openai_api_key>
     ```sh
     gpt chat
     ```
+
+## Features
+
+- ### Single prompt mode
+
+    ```sh
+    gpt ask "what is the highest mountain?"
+    ```
+
+- ### Interactive mode
+
+    REPL style prompt, ask follow-up questions, gpt uses short-term memory
+
+    ```sh
+    gpt chat
+    ```
+
+- ### Save flag
+
+    Saves conversation to file
+
+    ```sh
+    gpt <ask/chat> -s [filename]
+    ```
+
+## Roadmap
+
+⬜ Easier OpenAI API Key (gpt set-key)
+
+⬜ GPT-4 support
+
+⬜ Configuration file (temperature, top_p, model, etc)
+
+⬜ Ask questions from document (pdf, txt)
+
+⬜ Generate document summary
