@@ -6,7 +6,7 @@ Interact with ChatGPT directly from the command line
 ## Installation
 
 ```sh
-npm i @cozminu/gpt-cli -g
+npm i -g @cozminu/gpt-cli
 export OPENAI_API_KEY=<your_openai_api_key>
 ```
 

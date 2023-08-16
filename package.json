@@ -2,6 +2,7 @@
   "name": "@cozminu/gpt-cli",
   "version": "1.0.12",
   "description": "Interact with ChatGPT directly from the command line",
+  "keywords": ["chatgpt", "gpt", "chat", "cli", "langchain", "interactive"],
   "repository": {
     "url": "https://github.com/cozminu/gpt-cli"
   },
