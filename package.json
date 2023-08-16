@@ -11,12 +11,12 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "npm build && node index.js",
-    "ask": "npm build && node ./dist/index ask \"hello my name is Cozmin\" -s",
-    "chat": "npm build && node ./dist/index chat -s",
-    "help": "npm build && node ./dist/index -h",
+    "start": "npm run build && node index.js",
+    "ask": "npm run build && node ./dist/index ask \"hello my name is Cozmin\" -s",
+    "chat": "npm run build && node ./dist/index chat -s",
+    "help": "npm run build && node ./dist/index -h",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pub": "npm build && npm version patch && npm publish --access=public"
+    "pub": "npm run build && npm version patch && npm publish --access=public"
   },
   "author": "Cozmin U <cozminu@gmail.com> (https://github.com/cozminu)",
   "homepage": "https://github.com/cozminu/gpt-cli#readme",
