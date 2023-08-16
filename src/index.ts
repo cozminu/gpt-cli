@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import figlet from "figlet";
-import { Command } from "@commander-js/extra-typings";
+import { Command } from "commander";
 import chalk from "chalk";
 import boxen from "boxen";
 import { startInteractiveChat } from "./modes/interactive";

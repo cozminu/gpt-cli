@@ -12,10 +12,24 @@ export OPENAI_API_KEY=<your_openai_api_key>
 
 ## Usage
 
-```sh
-gpt ask "who wrote The Witcher?"
-```
+1. Open your terminal or command prompt.
 
-```sh
-gpt chat
-```
+2. Set the `OPENAI_API_KEY` environment variable using the command line:
+
+    ```bash
+    export OPENAI_API_KEY=<your_openai_api_key>
+    ```
+
+    Replace `<your_openai_api_key>` with your actual OpenAI API key. You can generate a new one here: https://platform.openai.com/account/api-keys
+
+3. Run the application using the following command:
+
+    ```sh
+    gpt ask "who wrote The Witcher?"
+    ```
+
+    or
+
+    ```sh
+    gpt chat
+    ```
