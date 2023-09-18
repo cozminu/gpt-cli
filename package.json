@@ -23,7 +23,7 @@
     "ask": "npm run build && node ./dist/src/index ask \"hello my name is Cozmin\" -s",
     "chat": "npm run build && node ./dist/src/index chat -s",
     "help": "npm run build && node ./dist/src/index -h",
-    "config": "npm run build && node ./dist/src/index config set plm plm2",
+    "config": "npm run build && node ./dist/src/index config set test test2",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pub": "npm run build && npm version patch && npm publish --access=public"
   },
