@@ -3,7 +3,7 @@ import { toStreamCallback } from "../utils/to-stream-callback";
 import { PassThrough } from "stream";
 import { OpenAIChat } from "langchain/llms/openai";
 
-export async function startSinglePromptChat(prompt: string, options: any) {
+export async function singlePromptAction(prompt: string, options: any) {
   const stream = new PassThrough();
 
   const model = new OpenAIChat({

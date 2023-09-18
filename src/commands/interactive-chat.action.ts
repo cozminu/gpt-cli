@@ -12,7 +12,7 @@ import { ConversationChain } from "langchain/chains";
 import { BufferWindowMemory } from "langchain/memory";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 
-export async function startInteractiveChat(options: any) {
+export async function interactiveChatAction(options: any) {
   const stream = new PassThrough();
 
   const memory = new BufferWindowMemory({
@@ -55,6 +55,10 @@ export async function startInteractiveChat(options: any) {
           const llm = new ChatOpenAI({
             callbacks: [toStreamCallback(stream)],
             streaming: true,
+            modelName: process.env.OPENAI_MODEL,
+            temperature: process.env.OPENAI_TEMP
+              ? parseFloat(process.env.OPENAI_TEMP)
+              : undefined,
           });
 
           const prompt = ChatPromptTemplate.fromPromptMessages([

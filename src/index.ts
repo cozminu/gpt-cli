@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-import figlet from "figlet";
 import { Command } from "commander";
-import chalk from "chalk";
-import boxen from "boxen";
-import { startInteractiveChat } from "./modes/interactive";
-import { startSinglePromptChat } from "./modes/single-prompt";
+import { interactiveChatAction } from "./commands/interactive-chat.action";
 import * as info from "../package.json";
+import { config as dotenvConfig } from "dotenv";
+import { appName, dotenvFilePath } from "./constants";
+import { configAction } from "./commands/config.action";
+import { helpAction } from "./commands/help.action";
+import { singlePromptAction } from "./commands/single-prompt.action";
+
+dotenvConfig({ path: dotenvFilePath });
 
 async function main() {
-  const name = "gpt";
+  const name = appName;
   const program = new Command(name);
 
   program
@@ -18,33 +21,30 @@ async function main() {
     .option("-s, --save [file]", "save conversation to a file");
 
   program
-    .command("ask <prompt>")
-    .description("Ask a single question to ChatGPT")
-    .action((prompt) => {
-      startSinglePromptChat(prompt, program.opts());
-    });
-
-  program
     .command("chat")
     .description("Interactive mode with ChatGPT")
     .action(() => {
-      startInteractiveChat(program.opts());
+      interactiveChatAction(program.opts());
+    });
+
+  program
+    .command("ask <prompt>")
+    .description("Ask a single question to ChatGPT")
+    .action((prompt) => {
+      singlePromptAction(prompt, program.opts());
     });
 
   program
     .command("help", { isDefault: true })
     .description("Display help for command")
     .action(() => {
-      process.stdout.write(
-        boxen(chalk.blue(figlet.textSync(name.toUpperCase())), {
-          borderColor: "cyan",
-          padding: { right: 6, top: 1, bottom: 1, left: 5 },
-          title: info.version,
-          titleAlignment: "right",
-        }) + "\n"
-      );
-      program.outputHelp();
+      helpAction(program, info);
     });
+
+  program
+    .command("config <set/unset> <key> [value]")
+    .description("Set/Unset config values")
+    .action(configAction);
 
   program.addHelpText(
     "after",

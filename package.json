@@ -19,20 +19,22 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node index.js",
-    "ask": "npm run build && node ./dist/index ask \"hello my name is Cozmin\" -s",
-    "chat": "npm run build && node ./dist/index chat -s",
-    "help": "npm run build && node ./dist/index -h",
+    "start": "npm run build && node ./dist/src/index.js",
+    "ask": "npm run build && node ./dist/src/index ask \"hello my name is Cozmin\" -s",
+    "chat": "npm run build && node ./dist/src/index chat -s",
+    "help": "npm run build && node ./dist/src/index -h",
+    "config": "npm run build && node ./dist/src/index config set plm plm2",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pub": "npm run build && npm version patch && npm publish --access=public"
   },
   "author": "Cozmin U <cozminu@gmail.com> (https://github.com/cozminu)",
   "homepage": "https://github.com/cozminu/gpt-cli#readme",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "boxen": "^5.1.2",
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
     "figlet": "^1.6.0",
     "langchain": "^0.0.128"
   },
